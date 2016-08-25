@@ -20,6 +20,8 @@ class CheckOut():
             self.scan_totals[rule.item_id] = 0
 
     def scan(self, item_id):
+        if item_id not in self.rules:
+            raise LookupError('This item is not in the grocery store ledgers')
         self.last_scan = item_id
         self.scan_totals[item_id]+=1
         self._update_total()
