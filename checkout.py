@@ -14,7 +14,7 @@ class CheckOut():
         self.rules = {}
         self.scan_totals = {}
         self.last_scan = None
-        self.total = 0
+        self.total_price = 0
         for rule in rules:
             self.rules[rule.item_id] = rule
             self.scan_totals[rule.item_id] = 0
@@ -26,7 +26,7 @@ class CheckOut():
         return True
 
     def total(self):
-        return self.total
+        return self.total_price
 
     def _update_total(self):
         return True

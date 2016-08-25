@@ -20,3 +20,5 @@ class Rule():
         self.price=price
         self.group_size=group_size
         self.group_price=group_price
+
+RULES =[]
