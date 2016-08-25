@@ -32,10 +32,11 @@ class CheckOut():
 
     def _update_total(self):
         applied_rule = self.rules[self.last_scan]
-        if applied_rule.group_size == None:
-            self.total_price += applied_rule.price
-            return True
-        if self.scan_totals[self.last_scan] % applied_rule.group_size == 0:
+        if type(applied_rule.group_size) == type(1):
+            grouped = self.scan_totals[self.last_scan] % applied_rule.group_size == 0
+        else:
+            grouped = False
+        if grouped:
             self.total_price -= applied_rule.price * (applied_rule.group_size-1)
             self.total_price += applied_rule.group_price
             return True
