@@ -21,4 +21,9 @@ class Rule():
         self.group_size=group_size
         self.group_price=group_price
 
-RULES =[]
+RULES =[
+    Rule('A', 50, group_size=3, group_price=130),
+    Rule('B', 30, group_size=2, group_price=45),
+    Rule('C', 20),
+    Rule('D', 15)
+]
