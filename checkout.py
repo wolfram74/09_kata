@@ -31,4 +31,13 @@ class CheckOut():
         return self.total_price
 
     def _update_total(self):
+        applied_rule = self.rules[self.last_scan]
+        if applied_rule.group_size == None:
+            self.total_price += applied_rule.price
+            return True
+        if self.scan_totals[self.last_scan] % applied_rule.group_size == 0:
+            self.total_price -= applied_rule.price * (applied_rule.group_size-1)
+            self.total_price += applied_rule.group_price
+            return True
+        self.total_price += applied_rule.price
         return True

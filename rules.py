@@ -18,6 +18,8 @@ class Rule():
     def __init__(self, item_id, price, group_size=None, group_price=None):
         self.item_id=item_id
         self.price=price
+        if group_size == 1:
+            group_size = None
         self.group_size=group_size
         self.group_price=group_price
 
